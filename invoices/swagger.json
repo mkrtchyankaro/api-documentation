@@ -1,0 +1,2977 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Gateway API V1",
+    "version": "v1"
+  },
+  "definitions": {
+    "options_array": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/gate/api/exposed/v1/invoice_data/{id}": {
+      "get": {
+        "summary": "Retrieves the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns invoice",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "directive": {
+                      "type": "string"
+                    },
+                    "claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "invoice_history": {
+                      "type": "string"
+                    },
+                    "account_comments_for_processing": {
+                      "type": "string"
+                    },
+                    "expense_domain": {
+                      "type": "string"
+                    },
+                    "paid_by": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "report": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "expense_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "invoice_date": {
+                      "type": "string"
+                    },
+                    "invoice_name": {
+                      "type": "string"
+                    },
+                    "total_amount": {
+                      "type": "string"
+                    },
+                    "approved_amount": {
+                      "type": "object",
+                      "properties": {
+                        "approved_amount": {
+                          "type": "string"
+                        },
+                        "currency": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "total_claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "total_vat_paid": {
+                      "type": "string"
+                    },
+                    "total_net_amount": {
+                      "type": "string"
+                    },
+                    "vat_rate": {
+                      "type": "string"
+                    },
+                    "claim_vat_rate": {
+                      "type": "string"
+                    },
+                    "supplier": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "vat_id": {
+                          "type": "string"
+                        },
+                        "tax_id": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "valid_company_names_by_client_policy": {
+                      "type": "string"
+                    },
+                    "valid_company_names_by_cvatbox_policy": {
+                      "type": "string"
+                    },
+                    "company_name_on_invoice": {
+                      "type": "string"
+                    },
+                    "company_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "employee_name": {
+                      "type": "string"
+                    },
+                    "employee_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "client_vat_id_on_invoice": {
+                      "type": "object",
+                      "properties": {
+                        "company_vat_id_type": {
+                          "type": "integer"
+                        },
+                        "company_vat_id_value": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "document_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "is_simplified": {
+                      "type": "boolean"
+                    },
+                    "proof_of_payment_existence": {
+                      "type": "boolean"
+                    },
+                    "wrongly_chanrged": {
+                      "type": "boolean"
+                    },
+                    "ng_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "reason": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "suspected_duplicates": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "duplication_status": {
+                      "type": "string"
+                    },
+                    "origin_invoice_status": {
+                      "type": "string"
+                    },
+                    "invoice_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reject_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reissue_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "comission_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reclaim": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "refund_amount": {
+                          "type": "string"
+                        },
+                        "gap_amount": {
+                          "type": "string"
+                        },
+                        "agent": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "vatbox_comments": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "invoice",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "directive": {
+                      "type": "string"
+                    },
+                    "claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "invoice_history": {
+                      "type": "string"
+                    },
+                    "account_comments_for_processing": {
+                      "type": "string"
+                    },
+                    "expense_domain": {
+                      "type": "string"
+                    },
+                    "paid_by": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "report": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "expense_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "invoice_date": {
+                      "type": "string"
+                    },
+                    "invoice_name": {
+                      "type": "string"
+                    },
+                    "total_amount": {
+                      "type": "string"
+                    },
+                    "approved_amount": {
+                      "type": "object",
+                      "properties": {
+                        "approved_amount": {
+                          "type": "string"
+                        },
+                        "currency": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "total_claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "total_vat_paid": {
+                      "type": "string"
+                    },
+                    "total_net_amount": {
+                      "type": "string"
+                    },
+                    "vat_rate": {
+                      "type": "string"
+                    },
+                    "claim_vat_rate": {
+                      "type": "string"
+                    },
+                    "supplier": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "vat_id": {
+                          "type": "string"
+                        },
+                        "tax_id": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "valid_company_names_by_client_policy": {
+                      "type": "string"
+                    },
+                    "valid_company_names_by_cvatbox_policy": {
+                      "type": "string"
+                    },
+                    "company_name_on_invoice": {
+                      "type": "string"
+                    },
+                    "company_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "employee_name": {
+                      "type": "string"
+                    },
+                    "employee_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "client_vat_id_on_invoice": {
+                      "type": "object",
+                      "properties": {
+                        "company_vat_id_type": {
+                          "type": "integer"
+                        },
+                        "company_vat_id_value": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "document_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "is_simplified": {
+                      "type": "boolean"
+                    },
+                    "proof_of_payment_existence": {
+                      "type": "boolean"
+                    },
+                    "wrongly_chanrged": {
+                      "type": "boolean"
+                    },
+                    "ng_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "reason": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "suspected_duplicates": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "duplication_status": {
+                      "type": "string"
+                    },
+                    "origin_invoice_status": {
+                      "type": "string"
+                    },
+                    "invoice_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reject_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reissue_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "comission_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reclaim": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "refund_amount": {
+                          "type": "string"
+                        },
+                        "gap_amount": {
+                          "type": "string"
+                        },
+                        "agent": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "vatbox_comments": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the invoice",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "directive": {
+                      "type": "string"
+                    },
+                    "claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "invoice_history": {
+                      "type": "string"
+                    },
+                    "account_comments_for_processing": {
+                      "type": "string"
+                    },
+                    "expense_domain": {
+                      "type": "string"
+                    },
+                    "paid_by": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "report": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "expense_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "invoice_date": {
+                      "type": "string"
+                    },
+                    "invoice_name": {
+                      "type": "string"
+                    },
+                    "total_amount": {
+                      "type": "string"
+                    },
+                    "approved_amount": {
+                      "type": "object",
+                      "properties": {
+                        "approved_amount": {
+                          "type": "string"
+                        },
+                        "currency": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "total_claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "total_vat_paid": {
+                      "type": "string"
+                    },
+                    "total_net_amount": {
+                      "type": "string"
+                    },
+                    "vat_rate": {
+                      "type": "string"
+                    },
+                    "claim_vat_rate": {
+                      "type": "string"
+                    },
+                    "supplier": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "vat_id": {
+                          "type": "string"
+                        },
+                        "tax_id": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "valid_company_names_by_client_policy": {
+                      "type": "string"
+                    },
+                    "valid_company_names_by_cvatbox_policy": {
+                      "type": "string"
+                    },
+                    "company_name_on_invoice": {
+                      "type": "string"
+                    },
+                    "company_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "employee_name": {
+                      "type": "string"
+                    },
+                    "employee_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "client_vat_id_on_invoice": {
+                      "type": "object",
+                      "properties": {
+                        "company_vat_id_type": {
+                          "type": "integer"
+                        },
+                        "company_vat_id_value": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "document_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "is_simplified": {
+                      "type": "boolean"
+                    },
+                    "proof_of_payment_existence": {
+                      "type": "boolean"
+                    },
+                    "wrongly_chanrged": {
+                      "type": "boolean"
+                    },
+                    "ng_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "reason": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "suspected_duplicates": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "duplication_status": {
+                      "type": "string"
+                    },
+                    "origin_invoice_status": {
+                      "type": "string"
+                    },
+                    "invoice_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reject_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reissue_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "comission_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reclaim": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "refund_amount": {
+                          "type": "string"
+                        },
+                        "gap_amount": {
+                          "type": "string"
+                        },
+                        "agent": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "vatbox_comments": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoice_data/{id}/validate": {
+      "put": {
+        "summary": "Validates the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "invoice",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "invoice": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "directive": {
+                      "type": "string"
+                    },
+                    "claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "invoice_history": {
+                      "type": "string"
+                    },
+                    "account_comments_for_processing": {
+                      "type": "string"
+                    },
+                    "expense_domain": {
+                      "type": "string"
+                    },
+                    "paid_by": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "report": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "expense_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "invoice_date": {
+                      "type": "string"
+                    },
+                    "invoice_name": {
+                      "type": "string"
+                    },
+                    "total_amount": {
+                      "type": "string"
+                    },
+                    "approved_amount": {
+                      "type": "object",
+                      "properties": {
+                        "approved_amount": {
+                          "type": "string"
+                        },
+                        "currency": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "total_claim_vat_amount": {
+                      "type": "string"
+                    },
+                    "total_vat_paid": {
+                      "type": "string"
+                    },
+                    "total_net_amount": {
+                      "type": "string"
+                    },
+                    "vat_rate": {
+                      "type": "string"
+                    },
+                    "claim_vat_rate": {
+                      "type": "string"
+                    },
+                    "supplier": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "vat_id": {
+                          "type": "string"
+                        },
+                        "tax_id": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "valid_company_names_by_client_policy": {
+                      "type": "string"
+                    },
+                    "valid_company_names_by_cvatbox_policy": {
+                      "type": "string"
+                    },
+                    "company_name_on_invoice": {
+                      "type": "string"
+                    },
+                    "company_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "employee_name": {
+                      "type": "string"
+                    },
+                    "employee_name_and_address": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "client_vat_id_on_invoice": {
+                      "type": "object",
+                      "properties": {
+                        "company_vat_id_type": {
+                          "type": "integer"
+                        },
+                        "company_vat_id_value": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "document_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "is_simplified": {
+                      "type": "boolean"
+                    },
+                    "proof_of_payment_existence": {
+                      "type": "boolean"
+                    },
+                    "wrongly_chanrged": {
+                      "type": "boolean"
+                    },
+                    "ng_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "reason": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "suspected_duplicates": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "duplication_status": {
+                      "type": "string"
+                    },
+                    "origin_invoice_status": {
+                      "type": "string"
+                    },
+                    "invoice_status": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reject_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reissue_reason": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "comission_type": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "reclaim": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "refund_amount": {
+                          "type": "string"
+                        },
+                        "gap_amount": {
+                          "type": "string"
+                        },
+                        "agent": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "vatbox_comments": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validates invoice",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "description": "*1 - success\n *2 - warning\n *3 - validation error\n *4 - critical notice\n *5 - other"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gate/api/exposed/v1/invoice_data/{id}/options": {
+      "get": {
+        "summary": "Options for the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "all",
+                "selects",
+                "changeable_selects",
+                "changeable",
+                "company_name_and_address_tooltip",
+                "account_note",
+                "document_type_select",
+                "employee_name_and_address_select",
+                "company_name_and_address_select",
+                "disabled_fields",
+                "mandatory_fields",
+                "directive",
+                "company_valid_name",
+                "valid_invoice_explanation",
+                "countries_select",
+                "currency_select",
+                "expense_type_select",
+                "clients_vat_id_on_invoice_select",
+                "origin_invoice_status_select",
+                "invoice_status_select",
+                "reject_reason_select",
+                "reissue_reason_select",
+                "agent_select"
+              ]
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "invoiced_at",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "document_type_id",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "employee_name_and_address",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "company_name_and_address",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "in_valid_invoice",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns options for invoice edit page like dropdowns and disabled/mandatory fields",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "company_name_and__address_tooltip": {
+                  "type": "string"
+                },
+                "account_note": {
+                  "type": "string"
+                },
+                "document_type_select": {
+                  "type": "array",
+                  "items": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "employee_name_and_address_select": {
+                  "type": "array",
+                  "items": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "company_name_and_address_select": {
+                  "type": "array",
+                  "items": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "countries_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "current_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "expense_type_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "clients_vat_id_on_invoice_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "origin_invoice_status_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "invoice_status_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "reject_reason_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "reissue_reason_select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "agent": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "disabled_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mandatory_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "directive": {
+                  "type": "string"
+                },
+                "company_valid_name": {
+                  "type": "string"
+                },
+                "valid_invoice_explanation": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data": {
+      "get": {
+        "summary": "Returns invoice by filter",
+        "produces": [
+          "application/json"
+        ],
+        "description": "Produces set of filtered and paginated invoices data. Default page=1, per_page=20. Can be sent in POST query, in this case params should be in JSON body.",
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 20
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "description": "Sorting",
+            "type": "string",
+            "enum": [
+              "invoice_number",
+              "invoiced_at",
+              "id"
+            ]
+          },
+          {
+            "name": "category_id",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "Invoice category id"
+          },
+          {
+            "name": "expense_domain",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            "description": "* 0: T&E\n* 1: AP\n* 2: AP Audit\n* 3: Inter-company\n* 4: Conferences"
+          },
+          {
+            "name": "origin_country",
+            "in": "query",
+            "required": false,
+            "description": "Code of company's country",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Code of invoice country",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "origin_invoice_status",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ]
+            },
+            "description": "* 1: No Need Origin Invoice\n* 2: Need Origin Invoice\n* 3: Need to Reissue By Client\n* 4: Need To Reissue\n* 5: Reissued By Client\n* 6: Reissued By VATBox\n* 7: Origin Invoice Accepted\n* 8: Origin invoice replied to VATBox\n* 9: Origin invoice replied to client"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                22,
+                14,
+                15,
+                16,
+                17,
+                19,
+                20,
+                21,
+                23,
+                24,
+                25,
+                26
+              ]
+            },
+            "description": "* 0: Deleted\n* 1: Uploaded\n* 2: Assigned To Agent\n* 3: Need More Info\n* 4: Ready To Reclaim\n* 5: Rejected By VATBox\n* 6: Reclaimed\n* 7: In Discussion With Authorities\n* 8: Approved\n* 9: Refunded\n* 10: Canceled\n* 11: Rejected By Authorities\n* 12: Ready To Remainder Reclaim\n* 13: Associated To Reclaim\n* 14: Scanned\n* 15: Auto-filled\n* 16: Input Validated\n* 17: Submission Failed\n* 19: Awaiting Scan\n* 20: Suspected Duplicate\n* 22: Merged\n* 23: Missing Details\n* 24: Crowds-filled\n* 25: Need To Reissue\n* 26: Replay"
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "is_eligible",
+            "in": "query",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "has_copy",
+            "in": "query",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "directive",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ]
+            },
+            "description": "* 1: Directive 8\n* 2: Domestic\n* 3: Requires registration\n* 4: Directive 13\n* 5: None\n* 6: VAT registration"
+          },
+          {
+            "name": "invoiced_at_from",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "invoiced_at_to",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "created_at_from",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "created_at_to",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "reviewed_at_from",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "reviewed_at_to",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Format: 'dd/mm/yyyy'"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "String to search for - searches by invoice_number, invoice_amount, reclaim_amount, employee_name, id"
+          },
+          {
+            "name": "supplier_id",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "supplier_address_id",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "amount_filter_type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "invoice_amount",
+              "reclaim_amount"
+            ]
+          },
+          {
+            "name": "amount_filter_from",
+            "in": "query",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "amount_filter_to",
+            "in": "query",
+            "type": "number",
+            "required": false
+          },
+          {
+            "name": "hq_branch",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "hq",
+                "branch",
+                "unknown"
+              ]
+            }
+          },
+          {
+            "name": "reject_reason",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns invoices",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pages": {
+                  "type": "integer",
+                  "description": "Total count of pages"
+                },
+                "invoices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "scan_url": {
+                        "type": "string"
+                      },
+                      "invoice_number": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "company": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "supplier": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "category": {
+                        "type": "string"
+                      },
+                      "invoice_date": {
+                        "type": "string"
+                      },
+                      "reclaim_amount": {
+                        "type": "string"
+                      },
+                      "invoice_amount": {
+                        "type": "string"
+                      },
+                      "vat_rate": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "origin_invoice_status": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "pages": 1,
+                "invoices": [
+                  {
+                    "id": 45,
+                    "url": "http://localhost:3000/console/agent_invoices/45?from_select=1",
+                    "invoice_number": "32343277",
+                    "country": {
+                      "code": "BE",
+                      "name": "Belgium"
+                    },
+                    "category": "cat_6",
+                    "invoice_date": "01/01/2016",
+                    "invoice_amount": "€123.21",
+                    "reclaim_amount": "€10.00",
+                    "vat_rate": "19.50%",
+                    "status": "Associated To Reclaim",
+                    "origin_invoice_status": "Origin Invoice Accepted",
+                    "supplier": {
+                      "name": "Turner, Klocko and Runolfsdottir",
+                      "url": "http://localhost:3000/console/suppliers/107"
+                    },
+                    "company": {
+                      "name": "2_Rudy Fadel DVM",
+                      "url": "http://localhost:3000/console/companies/90"
+                    },
+                    "scan_url": "http://res.cloudinary.com/vatbox-staging/image/upload/v1/277638.jpg"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Returns invoices data",
+        "description": "Same as GET request but allows to put more parameters without URL limitations. Takes params as json in body (requires Content-Type=application/json)",
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns invoices"
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data/options/": {
+      "get": {
+        "summary": "Returns options for certain selector (or all of them)",
+        "produces": [
+          "application/json"
+        ],
+        "description": "Returns data for filter options. Use param 'group' to specify which set of options should be used. Can be an array - so you can ask for `group=['status', 'reject_reason']`\nCompanies and agents can be paginated.",
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 20
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "required": true,
+            "description": "Group of options",
+            "type": "string",
+            "enum": [
+              "agent",
+              "status",
+              "origin_invoice_status",
+              "reject_reason",
+              "country",
+              "directive",
+              "hq_branch",
+              "expense_domain"
+            ]
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Returns error if incorrect group",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "error": "Not available group options: some_options"
+              }
+            }
+          },
+          "200": {
+            "description": "Returns options data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "company_group": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "child_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "company": {
+                  "$ref": "#/definitions/options_array"
+                },
+                "status": {
+                  "$ref": "#/definitions/options_array"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "reject_reasons": [
+                  {
+                    "id": 20,
+                    "name": "Company is VAT registered"
+                  },
+                  {
+                    "id": 13,
+                    "name": "Country Requires registration"
+                  },
+                  {
+                    "id": 1,
+                    "name": "Document is not an invoice"
+                  },
+                  {
+                    "id": 17,
+                    "name": "Employee address not valid"
+                  },
+                  {
+                    "id": 18,
+                    "name": "Missing mandatory details"
+                  },
+                  {
+                    "id": 4,
+                    "name": "Indirect Supplier"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Invoice Too Old"
+                  },
+                  {
+                    "id": 19,
+                    "name": "Invoice not Found"
+                  },
+                  {
+                    "id": 9,
+                    "name": "Invoice Not Original"
+                  },
+                  {
+                    "id": 11,
+                    "name": "Missing Proof Of Payment"
+                  },
+                  {
+                    "id": 14,
+                    "name": "Missing Forms"
+                  },
+                  {
+                    "id": 8,
+                    "name": "No Company Name On Invoice"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Other"
+                  },
+                  {
+                    "id": 10,
+                    "name": "Reclaim Rejected"
+                  },
+                  {
+                    "id": 7,
+                    "name": "Reclaim Below Minimum"
+                  },
+                  {
+                    "id": 15,
+                    "name": "Wrong company name/Address"
+                  },
+                  {
+                    "id": 16,
+                    "name": "VAT Amount Too Low"
+                  },
+                  {
+                    "id": 21,
+                    "name": "Duplicate"
+                  },
+                  {
+                    "id": 22,
+                    "name": "Missing VAT indication"
+                  },
+                  {
+                    "id": 23,
+                    "name": "VAT improperly charged"
+                  },
+                  {
+                    "id": 24,
+                    "name": "Rejected: Out of Scope"
+                  },
+                  {
+                    "id": 31,
+                    "name": "Personal expense"
+                  },
+                  {
+                    "id": 30,
+                    "name": "Credit Card Slip"
+                  },
+                  {
+                    "id": 32,
+                    "name": "Unapproved by client"
+                  },
+                  {
+                    "id": 33,
+                    "name": "Unmatched evidence"
+                  },
+                  {
+                    "id": 34,
+                    "name": "Unmatched justification"
+                  },
+                  {
+                    "id": 35,
+                    "name": "Processing on hold"
+                  }
+                ],
+                "status": [
+                  {
+                    "id": 14,
+                    "name": "Scanned"
+                  },
+                  {
+                    "id": 15,
+                    "name": "Auto-filled"
+                  },
+                  {
+                    "id": 24,
+                    "name": "Crowds-filled"
+                  },
+                  {
+                    "id": 19,
+                    "name": "Awaiting Scan"
+                  },
+                  {
+                    "id": 20,
+                    "name": "Suspected Duplicate"
+                  },
+                  {
+                    "id": 16,
+                    "name": "Input Validated"
+                  },
+                  {
+                    "id": 17,
+                    "name": "Submission Failed"
+                  },
+                  {
+                    "id": 1,
+                    "name": "Uploaded"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Assigned To Agent"
+                  },
+                  {
+                    "id": 3,
+                    "name": "Need More Info"
+                  },
+                  {
+                    "id": 12,
+                    "name": "Ready To Remainder Reclaim"
+                  },
+                  {
+                    "id": 23,
+                    "name": "Missing Details"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Rejected By VATBox"
+                  },
+                  {
+                    "id": 4,
+                    "name": "Ready To Reclaim"
+                  },
+                  {
+                    "id": 13,
+                    "name": "Associated To Reclaim"
+                  },
+                  {
+                    "id": 25,
+                    "name": "Need To Reissue"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Reclaimed"
+                  },
+                  {
+                    "id": 7,
+                    "name": "In Discussion With Authorities"
+                  },
+                  {
+                    "id": 8,
+                    "name": "Approved"
+                  },
+                  {
+                    "id": 9,
+                    "name": "Refunded"
+                  },
+                  {
+                    "id": 11,
+                    "name": "Rejected By Authorities"
+                  },
+                  {
+                    "id": 10,
+                    "name": "Canceled"
+                  },
+                  {
+                    "id": 0,
+                    "name": "Deleted"
+                  },
+                  {
+                    "id": 22,
+                    "name": "Merged"
+                  },
+                  {
+                    "id": 26,
+                    "name": "Replay"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data/supplier_search": {
+      "get": {
+        "summary": "Searches for supplier by term and country",
+        "produces": [
+          "application/json"
+        ],
+        "description": "Suppliers are being searched by term, because returning a full list is not possible.",
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Optional restriction to search for supplier in selected country/coutries (can be an array)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns suppliers",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "tax_id": {
+                    "type": "string"
+                  },
+                  "vat_id": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "valid_flag": {
+                    "type": "boolean"
+                  },
+                  "supplier_id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": "44",
+                  "name": "Some Hotel in Nowhere",
+                  "address": "Greentown, 38366 Alden Rapids",
+                  "tax_id": "",
+                  "vat_id": "11560998",
+                  "country": "FR",
+                  "valid_flag": false,
+                  "supplier_id": "44",
+                  "type": "supplier"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data/companies": {
+      "get": {
+        "summary": "Searches for companies",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 20
+          },
+          {
+            "name": "filtered_ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "List of companies to exclude from result"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns companies",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pages": {
+                  "type": "integer",
+                  "description": "Total count of pages"
+                },
+                "companies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "pages": 1,
+                "companies": [
+                  {
+                    "id": 1,
+                    "name": "1_Randy Gutmann"
+                  },
+                  {
+                    "id": 2,
+                    "name": "2_Nichole Mitchell"
+                  },
+                  {
+                    "id": 3,
+                    "name": "1_Tyra Wintheiser"
+                  },
+                  {
+                    "id": 4,
+                    "name": "2_Abigale Wiegand"
+                  },
+                  {
+                    "id": 5,
+                    "name": "1_Gerardo Mante"
+                  },
+                  {
+                    "id": 6,
+                    "name": "2_Giovanna Buckridge"
+                  },
+                  {
+                    "id": 7,
+                    "name": "1_Katrine Walker"
+                  },
+                  {
+                    "id": 8,
+                    "name": "2_Chester Schulist"
+                  },
+                  {
+                    "id": 9,
+                    "name": "1_Vincenza Runolfsdottir"
+                  },
+                  {
+                    "id": 10,
+                    "name": "2_Vesta Hirthe I"
+                  },
+                  {
+                    "id": 11,
+                    "name": "1_Madelyn Williamson"
+                  },
+                  {
+                    "id": 12,
+                    "name": "2_Whitney Larkin"
+                  },
+                  {
+                    "id": 13,
+                    "name": "1_Mrs. Amelie Casper"
+                  },
+                  {
+                    "id": 14,
+                    "name": "2_Juana Flatley"
+                  },
+                  {
+                    "id": 15,
+                    "name": "1_Madge Donnelly"
+                  },
+                  {
+                    "id": 16,
+                    "name": "2_Dr. Linwood Kuhic"
+                  },
+                  {
+                    "id": 17,
+                    "name": "1_Carlie Ratke"
+                  },
+                  {
+                    "id": 18,
+                    "name": "2_Yasmin Schuppe"
+                  },
+                  {
+                    "id": 19,
+                    "name": "3_Camylle Koch II"
+                  },
+                  {
+                    "id": 20,
+                    "name": "4_Emmitt McKenzie"
+                  },
+                  {
+                    "id": 21,
+                    "name": "1_Teagan Cole III"
+                  },
+                  {
+                    "id": 22,
+                    "name": "2_Anastasia Smith"
+                  },
+                  {
+                    "id": 23,
+                    "name": "3_Willa Collins"
+                  },
+                  {
+                    "id": 24,
+                    "name": "4_Mrs. Philip Hoeger"
+                  },
+                  {
+                    "id": 25,
+                    "name": "1_Sabrina Crist"
+                  },
+                  {
+                    "id": 26,
+                    "name": "2_Ms. Hershel Fritsch"
+                  },
+                  {
+                    "id": 27,
+                    "name": "3_Sabina Murray"
+                  },
+                  {
+                    "id": 28,
+                    "name": "4_Liliane Mueller I"
+                  },
+                  {
+                    "id": 29,
+                    "name": "1_Kade Boyer II"
+                  },
+                  {
+                    "id": 30,
+                    "name": "2_Barton Okuneva"
+                  },
+                  {
+                    "id": 31,
+                    "name": "3_Bernadette Cassin"
+                  },
+                  {
+                    "id": 32,
+                    "name": "4_Alberta Howe"
+                  },
+                  {
+                    "id": 33,
+                    "name": "1_Manuela Tromp"
+                  },
+                  {
+                    "id": 34,
+                    "name": "2_Mitchel MacGyver"
+                  },
+                  {
+                    "id": 35,
+                    "name": "3_Dr. Rashawn Baumbach"
+                  },
+                  {
+                    "id": 36,
+                    "name": "4_Herminia Wisoky III"
+                  },
+                  {
+                    "id": 37,
+                    "name": "1_Arch Schowalter"
+                  },
+                  {
+                    "id": 38,
+                    "name": "2_Eldred Wehner IV"
+                  },
+                  {
+                    "id": 39,
+                    "name": "3_Vincent Nicolas"
+                  },
+                  {
+                    "id": 40,
+                    "name": "4_Sibyl Borer"
+                  },
+                  {
+                    "id": 41,
+                    "name": "1_Joelle Tromp"
+                  },
+                  {
+                    "id": 42,
+                    "name": "2_Jarvis Welch"
+                  },
+                  {
+                    "id": 43,
+                    "name": "3_Mrs. Caleb Wiegand"
+                  },
+                  {
+                    "id": 44,
+                    "name": "4_Elisha Schaefer"
+                  },
+                  {
+                    "id": 45,
+                    "name": "1_Lucinda Abbott"
+                  },
+                  {
+                    "id": 46,
+                    "name": "2_Valentina Spinka"
+                  },
+                  {
+                    "id": 47,
+                    "name": "1_Dennis Waelchi II"
+                  },
+                  {
+                    "id": 48,
+                    "name": "2_Lera Rempel"
+                  },
+                  {
+                    "id": 49,
+                    "name": "1_Orin Heidenreich"
+                  },
+                  {
+                    "id": 50,
+                    "name": "2_Monserrat Jenkins"
+                  },
+                  {
+                    "id": 51,
+                    "name": "3_Gracie Pfannerstill"
+                  },
+                  {
+                    "id": 52,
+                    "name": "4_Kaci Purdy"
+                  },
+                  {
+                    "id": 53,
+                    "name": "1_Madelyn Fritsch"
+                  },
+                  {
+                    "id": 54,
+                    "name": "2_Mrs. Myrtice Schimmel"
+                  },
+                  {
+                    "id": 55,
+                    "name": "1_Jermain Kuhic"
+                  },
+                  {
+                    "id": 56,
+                    "name": "2_Shayna Von PhD"
+                  },
+                  {
+                    "id": 57,
+                    "name": "3_Brianne Abernathy"
+                  },
+                  {
+                    "id": 58,
+                    "name": "4_Sydnee Cartwright Sr."
+                  },
+                  {
+                    "id": 59,
+                    "name": "1_Jenifer Kihn"
+                  },
+                  {
+                    "id": 60,
+                    "name": "2_Hilma Gaylord DDS"
+                  },
+                  {
+                    "id": 61,
+                    "name": "3_Lolita Bradtke"
+                  },
+                  {
+                    "id": 62,
+                    "name": "4_Estevan Crist"
+                  },
+                  {
+                    "id": 63,
+                    "name": "1_Mr. Shakira Aufderhar"
+                  },
+                  {
+                    "id": 64,
+                    "name": "2_Cyril Kutch"
+                  },
+                  {
+                    "id": 65,
+                    "name": "1_Dr. Hadley Wyman"
+                  },
+                  {
+                    "id": 66,
+                    "name": "2_Raymond Gerlach"
+                  },
+                  {
+                    "id": 67,
+                    "name": "1_Keenan Reichel"
+                  },
+                  {
+                    "id": 68,
+                    "name": "2_Sam Durgan"
+                  },
+                  {
+                    "id": 69,
+                    "name": "1_Baron O'Keefe PhD"
+                  },
+                  {
+                    "id": 70,
+                    "name": "2_Mariano Murray"
+                  },
+                  {
+                    "id": 71,
+                    "name": "1_Dr. Antonia Kris"
+                  },
+                  {
+                    "id": 72,
+                    "name": "2_Queen McGlynn"
+                  },
+                  {
+                    "id": 73,
+                    "name": "1_Patricia Jakubowski"
+                  },
+                  {
+                    "id": 74,
+                    "name": "2_Raquel Ritchie II"
+                  },
+                  {
+                    "id": 75,
+                    "name": "1_Mr. Austyn Thiel"
+                  },
+                  {
+                    "id": 76,
+                    "name": "2_Gunner Schaden"
+                  },
+                  {
+                    "id": 77,
+                    "name": "1_Darwin Gutmann PhD"
+                  },
+                  {
+                    "id": 78,
+                    "name": "2_Euna Cruickshank"
+                  },
+                  {
+                    "id": 79,
+                    "name": "1_Dolores Schiller"
+                  },
+                  {
+                    "id": 80,
+                    "name": "2_Daija Dickinson"
+                  },
+                  {
+                    "id": 81,
+                    "name": "1_Kyla O'Conner"
+                  },
+                  {
+                    "id": 82,
+                    "name": "2_Alfreda Collier"
+                  },
+                  {
+                    "id": 83,
+                    "name": "1_Chauncey Nienow"
+                  },
+                  {
+                    "id": 84,
+                    "name": "2_Berniece Kiehn"
+                  },
+                  {
+                    "id": 85,
+                    "name": "1_Alexis Smitham"
+                  },
+                  {
+                    "id": 86,
+                    "name": "2_Rebecca Schinner"
+                  },
+                  {
+                    "id": 87,
+                    "name": "1_Ms. Howard Buckridge"
+                  },
+                  {
+                    "id": 88,
+                    "name": "2_Wilma Blick"
+                  },
+                  {
+                    "id": 89,
+                    "name": "1_Isai Haley"
+                  },
+                  {
+                    "id": 90,
+                    "name": "2_Rudy Fadel DVM"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data/company_groups": {
+      "get": {
+        "summary": "Searches for company groups",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "default": 20
+          },
+          {
+            "name": "filtered_ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "List of companies to exclude from result"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns company groups",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pages": {
+                  "type": "integer",
+                  "description": "Total count of pages"
+                },
+                "companies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "child_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "pages": 1,
+                "companies": [
+
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gate/api/exposed/v1/invoices_data/export": {
+      "post": {
+        "summary": "Starts export of invoices in required format",
+        "description": "Same as GET/POST /gate/v1/invoices_data - takes all the same parameters as index.",
+        "parameters": [
+          {
+            "name": "Vatbox-User-Name",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization header"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "csv",
+              "zip",
+              "pdf"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "400": {
+            "description": "if format is blank of not supported or number of invoices matching filter exceeds limit (currently 200'000)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "description": "Message that should be shown to user"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "error": "Unsupported format"
+              }
+            }
+          },
+          "200": {
+            "description": "Returns invoices",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "notice": {
+                  "type": "string",
+                  "description": "Message that should be shown to user"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "notice": "Your export is being processed and you will be notified by email when it is completed."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

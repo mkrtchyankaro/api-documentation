@@ -1,0 +1,1892 @@
+swagger: '2.0'
+info:
+  description: Api Documentation
+  version: '1.0'
+  title: Api Documentation
+  termsOfService: urn:tos
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+host: localhost:8080
+basePath: "/"
+tags:
+- name: accounts-controller
+  description: Accounts Controller
+- name: approves-controller
+  description: Approves Controller
+- name: draft-controller
+  description: Draft Controller
+- name: healthcheck-controller
+  description: Healthcheck Controller
+- name: refund-entities-controller
+  description: Refund Entities Controller
+- name: refunds-controller
+  description: Refunds Controller
+- name: statistic-controller
+  description: Statistic Controller
+paths:
+  "/api/exposed/v1.0/accounts":
+    get:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingGET
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingDELETE
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - accounts-controller
+      summary: accounts
+      operationId: accountsUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/accounts/{accountId}":
+    get:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingDELETE
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - accounts-controller
+      summary: getAccount
+      operationId: getAccountUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Accounts"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/accounts/{accountId}/entities":
+    get:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingDELETE
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - refund-entities-controller
+      summary: getRefundEntitiesByAccountId
+      operationId: getRefundEntitiesByAccountIdUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/RefundEntities"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/accounts/{accountId}/entities/{entityId}/refunds":
+    get:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingDELETE
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - refunds-controller
+      summary: getRefundEntitiesByAccountIdCountryDatesAndMinAmount
+      operationId: getRefundEntitiesByAccountIdCountryDatesAndMinAmountUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Refund"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/accounts/{accountId}/entities/{entityId}/statistics":
+    get:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingDELETE
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - statistic-controller
+      summary: getEntityStatistic
+      operationId: getEntityStatisticUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      - name: country
+        in: query
+        description: country
+        required: false
+        type: string
+      - name: end
+        in: query
+        description: end
+        required: false
+        type: string
+      - name: entityId
+        in: path
+        description: entityId
+        required: true
+        type: integer
+        format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
+      - name: start
+        in: query
+        description: start
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/accounts/{accountId}/statistics":
+    get:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingHEAD
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingDELETE
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingOPTIONS
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+      - statistic-controller
+      summary: accountStatistic
+      operationId: accountStatisticUsingPATCH
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: integer
+        format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/Statistic"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/api/exposed/v1.0/approves/{id}":
+    get:
+      tags:
+      - approves-controller
+      summary: getDraft
+      operationId: getDraftUsingGET
+      produces:
+      - "*/*"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/ApproveDto"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+      - approves-controller
+      summary: approveDraft
+      operationId: approveDraftUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/ApproveDto"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/api/exposed/v1.0/drafts":
+    post:
+      tags:
+      - draft-controller
+      summary: createDraft
+      operationId: createDraftUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - in: body
+        name: requestDto
+        description: requestDto
+        required: true
+        schema:
+          "$ref": "#/definitions/DraftRefundDto"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/api/exposed/v1.0/drafts/{id}":
+    get:
+      tags:
+      - draft-controller
+      summary: getDraft
+      operationId: getDraftUsingGET_1
+      produces:
+      - "*/*"
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/DraftRefundDto"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+      - draft-controller
+      summary: approveDraft
+      operationId: approveDraftUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - "*/*"
+      parameters:
+      - name: approvedBy
+        in: query
+        description: approvedBy
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/healthcheck/liveness":
+    get:
+      tags:
+      - healthcheck-controller
+      summary: liveness
+      operationId: livenessUsingGET
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/healthcheck/readiness":
+    get:
+      tags:
+      - healthcheck-controller
+      summary: readiness
+      operationId: readinessUsingGET
+      produces:
+      - "*/*"
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+definitions:
+  Accounts:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    title: Accounts
+  ApproveDto:
+    type: object
+    properties:
+      account:
+        "$ref": "#/definitions/Accounts"
+      approveDate:
+        type: string
+      approvedBy:
+        type: string
+      clarification:
+        type: string
+      createdDate:
+        type: string
+      end:
+        type: string
+      entity:
+        "$ref": "#/definitions/RefundEntities"
+      refunds:
+        type: array
+        items:
+          "$ref": "#/definitions/Refund"
+      start:
+        type: string
+      status:
+        type: string
+    title: ApproveDto
+  ChildrenRefund:
+    type: object
+    properties:
+      country:
+        type: string
+      details:
+        "$ref": "#/definitions/Details"
+      id:
+        type: string
+      name:
+        type: string
+    title: ChildrenRefund
+  Details:
+    type: object
+    properties:
+      amount:
+        type: number
+      count:
+        type: integer
+        format: int32
+      images:
+        type: array
+        items:
+          type: string
+    title: Details
+  DraftDetailReasonDto:
+    type: object
+    properties:
+      childrenNames:
+        type: array
+        items:
+          type: string
+      country:
+        type: string
+      name:
+        type: string
+    title: DraftDetailReasonDto
+  DraftRefundDto:
+    type: object
+    properties:
+      accountId:
+        type: integer
+        format: int64
+      clarification:
+        type: string
+      email:
+        type: string
+      end:
+        type: string
+      entityId:
+        type: integer
+        format: int64
+      refunds:
+        type: array
+        items:
+          "$ref": "#/definitions/DraftDetailReasonDto"
+      start:
+        type: string
+      status:
+        type: string
+    title: DraftRefundDto
+  Refund:
+    type: object
+    properties:
+      children:
+        type: array
+        items:
+          "$ref": "#/definitions/ChildrenRefund"
+      country:
+        type: string
+      details:
+        "$ref": "#/definitions/Details"
+      disable:
+        type: boolean
+      id:
+        type: string
+      name:
+        type: string
+    title: Refund
+  RefundEntities:
+    type: object
+    properties:
+      countries:
+        type: array
+        items:
+          type: string
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    title: RefundEntities
+  Statistic:
+    type: object
+    properties:
+      country:
+        type: string
+      currency:
+        type: string
+      disqualified:
+        type: number
+      id:
+        type: integer
+        format: int64
+      inProgress:
+        type: number
+      qualified:
+        type: number
+    title: Statistic

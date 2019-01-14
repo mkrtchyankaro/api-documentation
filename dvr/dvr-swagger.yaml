@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: Api Documentation
+  description: DVR Api Documentation
   version: '1.0'
   title: Api Documentation
   termsOfService: urn:tos
@@ -16,8 +16,6 @@ tags:
 - name: approves-controller
   description: Approves Controller
 - name: draft-controller
-  description: Draft Controller
-- name: healthcheck-controller
   description: Healthcheck Controller
 - name: refund-entities-controller
   description: Refund Entities Controller
@@ -1702,42 +1700,6 @@ paths:
           description: OK
         '201':
           description: Created
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/healthcheck/liveness":
-    get:
-      tags:
-      - healthcheck-controller
-      summary: liveness
-      operationId: livenessUsingGET
-      produces:
-      - "*/*"
-      responses:
-        '200':
-          description: OK
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-      deprecated: false
-  "/healthcheck/readiness":
-    get:
-      tags:
-      - healthcheck-controller
-      summary: readiness
-      operationId: readinessUsingGET
-      produces:
-      - "*/*"
-      responses:
-        '200':
-          description: OK
         '401':
           description: Unauthorized
         '403':

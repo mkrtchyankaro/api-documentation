@@ -387,8 +387,8 @@ paths:
     get:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingGET
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingGET
       produces:
       - "*/*"
       parameters:
@@ -398,6 +398,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -415,8 +420,8 @@ paths:
     head:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingHEAD
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingHEAD
       consumes:
       - application/json
       produces:
@@ -428,6 +433,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -445,8 +455,8 @@ paths:
     post:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingPOST
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingPOST
       consumes:
       - application/json
       produces:
@@ -458,6 +468,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -477,8 +492,8 @@ paths:
     put:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingPUT
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingPUT
       consumes:
       - application/json
       produces:
@@ -490,6 +505,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -509,8 +529,8 @@ paths:
     delete:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingDELETE
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingDELETE
       produces:
       - "*/*"
       parameters:
@@ -520,6 +540,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -537,8 +562,8 @@ paths:
     options:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingOPTIONS
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingOPTIONS
       consumes:
       - application/json
       produces:
@@ -550,6 +575,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -567,8 +597,8 @@ paths:
     patch:
       tags:
       - refund-entities-controller
-      summary: getRefundEntitiesByAccountId
-      operationId: getRefundEntitiesByAccountIdUsingPATCH
+      summary: getRefundEntities
+      operationId: getRefundEntitiesUsingPATCH
       consumes:
       - application/json
       produces:
@@ -580,6 +610,11 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: minAmount
+        in: query
+        description: minAmount
+        required: false
+        type: number
       responses:
         '200':
           description: OK
@@ -1751,10 +1786,19 @@ definitions:
       details:
         "$ref": "#/definitions/Details"
       id:
-        type: string
+        type: integer
+        format: int64
       name:
         type: string
     title: ChildrenRefund
+  DetailReasonChildDto:
+    type: object
+    properties:
+      comment:
+        type: string
+      name:
+        type: string
+    title: DetailReasonChildDto
   Details:
     type: object
     properties:
@@ -1771,10 +1815,12 @@ definitions:
   DraftDetailReasonDto:
     type: object
     properties:
-      childrenNames:
+      children:
         type: array
         items:
-          type: string
+          "$ref": "#/definitions/DetailReasonChildDto"
+      comment:
+        type: string
       country:
         type: string
       name:
@@ -1786,8 +1832,6 @@ definitions:
       accountId:
         type: integer
         format: int64
-      clarification:
-        type: string
       email:
         type: string
       end:

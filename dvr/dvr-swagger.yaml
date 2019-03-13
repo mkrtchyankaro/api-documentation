@@ -398,11 +398,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -433,11 +428,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -468,11 +458,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -505,11 +490,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -540,11 +520,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -575,11 +550,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -610,11 +580,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       responses:
         '200':
           description: OK
@@ -644,6 +609,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -660,11 +635,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -700,6 +670,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -716,11 +696,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -756,6 +731,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -772,11 +757,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -814,6 +794,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -830,11 +820,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -870,6 +855,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -886,11 +881,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -926,6 +916,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -942,11 +942,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -982,6 +977,16 @@ paths:
         required: true
         type: integer
         format: int64
+      - name: amountFrom
+        in: query
+        description: amountFrom
+        required: false
+        type: number
+      - name: amountTo
+        in: query
+        description: amountTo
+        required: false
+        type: number
       - name: country
         in: query
         description: country
@@ -998,11 +1003,6 @@ paths:
         required: true
         type: integer
         format: int64
-      - name: minAmount
-        in: query
-        description: minAmount
-        required: false
-        type: number
       - name: start
         in: query
         description: start
@@ -1781,6 +1781,8 @@ definitions:
   ChildrenRefund:
     type: object
     properties:
+      comment:
+        type: string
       country:
         type: string
       details:
@@ -1855,6 +1857,8 @@ definitions:
         type: array
         items:
           "$ref": "#/definitions/ChildrenRefund"
+      comment:
+        type: string
       country:
         type: string
       details:
